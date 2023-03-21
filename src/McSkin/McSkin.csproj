@@ -1,21 +1,23 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <AssemblyVersion>1.0.0</AssemblyVersion>
+    <AssemblyVersion>1.0.1</AssemblyVersion>
     <Authors>PotatoMaster101</Authors>
     <Copyright>Copyright (c) 2023 PotatoMaster101</Copyright>
     <Description>Small library for playing with Minecraft Skins</Description>
-    <FileVersion>1.0.0</FileVersion>
+    <FileVersion>1.0.1</FileVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageReleaseNotes>Initial release</PackageReleaseNotes>
+    <PackageReleaseNotes>- Added missing `ConfigureAwait`
+- Added `isLegacy` to `Skin` constructor</PackageReleaseNotes>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageTags>Minecraft</PackageTags>
     <RepositoryUrl>https://github.com/PotatoMaster101/McSkin</RepositoryUrl>
     <TargetFramework>net7.0</TargetFramework>
     <Title>McSkin</Title>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">

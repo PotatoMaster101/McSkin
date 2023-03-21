@@ -22,7 +22,7 @@ public static class SkinGrabber
     /// <exception cref="ArgumentException">Thrown when the skin image is invalid.</exception>
     public static async Task<Skin> FromFile(string path, CancellationToken cancellationToken = default)
     {
-        return new Skin(await Image.LoadAsync(path, cancellationToken));
+        return new Skin(await Image.LoadAsync(path, cancellationToken).ConfigureAwait(false));
     }
 
     /// <summary>
