@@ -10,16 +10,18 @@ namespace McSkin.Test;
 /// </summary>
 public class SkinTest
 {
-    [Fact]
-    public void Ctor1_SetsMembers()
+    [Theory]
+    [InlineData(true)]
+    [InlineData(false)]
+    public void Ctor1_SetsMembers(bool isLegacy)
     {
         // act
-        using var skin = new Skin();
+        using var skin = new Skin(isLegacy);
 
         // assert
-        Assert.False(skin.IsLegacy);
+        Assert.Equal(isLegacy, skin.IsLegacy);
         Assert.Equal(Skin.StandardWidth, skin.SkinImage.Width);
-        Assert.Equal(Skin.StandardHeight, skin.SkinImage.Height);
+        Assert.Equal(isLegacy ? Skin.LegacyHeight : Skin.StandardHeight, skin.SkinImage.Height);
     }
 
     [Theory]

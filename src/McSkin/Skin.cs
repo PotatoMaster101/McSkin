@@ -33,7 +33,8 @@ public class Skin : IDisposable
     /// <summary>
     /// Constructs a new instance of <see cref="Skin"/>.
     /// </summary>
-    public Skin() : this(new Image<Rgba32>(StandardWidth, StandardHeight))
+    /// <param name="isLegacy">Whether the skin is a legacy skin.</param>
+    public Skin(bool isLegacy = false) : this(new Image<Rgba32>(StandardWidth, isLegacy ? LegacyHeight : StandardHeight))
     { }
 
     /// <summary>
