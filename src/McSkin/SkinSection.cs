@@ -58,6 +58,15 @@ public class SkinSection
     /// <summary>
     /// Constructs a new instance of <see cref="SkinSection"/>.
     /// </summary>
+    /// <param name="rect">The rectangle containing the position and size.</param>
+    /// <param name="legacyEquivalent">The equivalent section that can be used on legacy skins.</param>
+    /// <exception cref="ArgumentOutOfRangeException">Thrown when any argument is out of range.</exception>
+    public SkinSection(Rectangle rect, SkinSection? legacyEquivalent = null)
+        : this(rect.X, rect.Y, rect.Width, rect.Height, legacyEquivalent) { }
+
+    /// <summary>
+    /// Constructs a new instance of <see cref="SkinSection"/>.
+    /// </summary>
     /// <param name="x">The starting X position.</param>
     /// <param name="y">The starting Y position.</param>
     /// <param name="width">The section width.</param>
