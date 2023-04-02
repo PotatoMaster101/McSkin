@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using SixLabors.ImageSharp;
+using Xunit;
 
 namespace McSkin.Test;
 
@@ -12,7 +13,28 @@ public class SkinSectionTest
     [InlineData(0, 0, Skin.StandardWidth, Skin.LegacyHeight)]
     [InlineData(32, 32, 32, 32)]
     [InlineData(0, 0, 1, 1)]
-    public void Constructor_SetsMember(int x, int y, int width, int height)
+    public void Constructor1_SetsMember(int x, int y, int width, int height)
+    {
+        // arrange
+        var rect = new Rectangle(x, y, width, height);
+
+        // act
+        var section = new SkinSection(rect);
+
+        // assert
+        Assert.Equal(x, section.X);
+        Assert.Equal(y, section.Y);
+        Assert.Equal(width, section.Width);
+        Assert.Equal(height, section.Height);
+        Assert.Null(section.LegacyEquivalentSection);
+    }
+
+    [Theory]
+    [InlineData(0, 0, Skin.StandardWidth, Skin.StandardHeight)]
+    [InlineData(0, 0, Skin.StandardWidth, Skin.LegacyHeight)]
+    [InlineData(32, 32, 32, 32)]
+    [InlineData(0, 0, 1, 1)]
+    public void Constructor2_SetsMember(int x, int y, int width, int height)
     {
         // act
         var section = new SkinSection(x, y, width, height);
@@ -35,7 +57,7 @@ public class SkinSectionTest
     [InlineData(-1, 0, 1, 1)]
     [InlineData(0, -1, 1, 1)]
     [InlineData(0, 0, 0, 0)]
-    public void Constructor_ThrowsOnOutOfRange(int x, int y, int width, int height)
+    public void Constructor2_ThrowsOnOutOfRange(int x, int y, int width, int height)
     {
         // assert
         Assert.Throws<ArgumentOutOfRangeException>(() => new SkinSection(x, y, width, height));
